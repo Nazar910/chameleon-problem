@@ -10,7 +10,13 @@ class TestBfs(unittest.TestCase):
         self.assertEqual(final_state.red_count, 0)
         self.assertEqual(final_state.green_count, 46)
         self.assertEqual(final_state.blue_count, 0)
-        print('Visited elems: {}'.format(len(result['visited'])))
+        print('Full path length: {}'.format(len(result['full_path'])))
+        path = result['path']
+        print('Path length is {}'.format(len(path)))
+        i = 0
+        for node in path:
+            print('{}:{}'.format(i, node))
+            i += 1
 
 if __name__ == "__main__":
     unittest.main()

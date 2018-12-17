@@ -5,8 +5,10 @@ def dfs(state):
     path = deque()
     path.append(state)
     visited = set()
+    full_path = []
     i = 0
     while state is not None and not state.has_only_one_color():
+        full_path.append(str(state))
         if state.has_red_ones() and state.has_green_ones() and str(state.red_met_green()) not in visited:
             new_state = state.red_met_green()
         elif state.has_blue_ones() and state.has_red_ones() and str(state.blue_met_red()) not in visited:
@@ -28,5 +30,6 @@ def dfs(state):
     return {
         'final_state': state,
         'visited': visited,
-        'path': path
+        'path': path,
+        'full_path': full_path
     }

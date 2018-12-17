@@ -15,6 +15,7 @@ class TestDfs(unittest.TestCase):
         print('Path')
         for p in result['path']:
             print(p)
+        print('Full path length: {}'.format(len(result['full_path'])))
 
 if __name__ == "__main__":
     unittest.main()

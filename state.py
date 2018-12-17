@@ -1,3 +1,5 @@
+from collections import deque
+
 class State():
     def __init__(self, **chameleon_count):
         self.__red_count = chameleon_count['red']
@@ -85,6 +87,13 @@ class State():
         )
         new_state.parent = self
         return new_state
+    def get_path(self):
+        path = deque([str(self)])
+        parent = self.parent
+        while parent:
+            path.appendleft(str(parent))
+            parent = parent.parent
+        return path
 
     def __str__(self):
         return '(red={},green={},blue={})'.format(self.red_count, self.green_count, self.blue_count)

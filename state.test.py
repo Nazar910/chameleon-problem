@@ -99,5 +99,15 @@ class TestState(unittest.TestCase):
         state = State(red=10, green=10, blue=0)
         self.assertRaises(Exception, state.blue_met_red)
 
+    def test_get_path(self):
+        state = State(red=10, green=10, blue=10)
+        result = state.red_met_green().green_met_blue().blue_met_red()
+        result_path = result.get_path()
+        self.assertEqual(len(result_path), 4)
+        self.assertEqual(
+            '->'.join(result_path),
+            '(red=10,green=10,blue=10)->(red=9,green=9,blue=12)->(red=11,green=8,blue=11)->(red=10,green=10,blue=10)'
+        )
+
 if __name__ == "__main__":
     unittest.main()
