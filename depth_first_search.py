@@ -2,8 +2,6 @@ from collections import deque
 
 def dfs(state):
     prev_states = deque()
-    path = deque()
-    path.append(state)
     visited = set()
     full_path = []
     i = 0
@@ -17,19 +15,17 @@ def dfs(state):
             new_state = state.green_met_blue()
         else:
             state = prev_states.pop()
-            path.pop()
             print('Going one step back')
             continue
         prev_states.append(state)
         print('{}:{}'.format(i, state))
         i += 1
-        path.append(new_state)
         state = new_state
         visited.add(str(new_state))
     print('Final state is {}:{}'.format(i, state))
     return {
         'final_state': state,
         'visited': visited,
-        'path': path,
+        'path': state.get_path(),
         'full_path': full_path
     }

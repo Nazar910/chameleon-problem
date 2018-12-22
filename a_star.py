@@ -12,13 +12,14 @@ class PriorityQueue:
     def get(self):
         return self.elements.pop(0)[1]
 
-def heuristic(a, b):
-    return abs(a.red_count - b.red_count) + abs(a.blue_count - b.blue_count) + abs(a.green_count - a.green_count)
+from state import State
+goal = State(red=0, green=46, blue=0)
+def heuristic_to_goal(node):
+    return abs(goal.red_count - node.red_count) \
+     + abs(goal.blue_count - node.blue_count) \
+     + abs(goal.green_count - node.green_count)
 
 from collections import deque
-from state import State
-
-goal = State(red=0, green=46, blue=0)
 
 def a_star(state):
     queue = PriorityQueue()
@@ -49,7 +50,7 @@ def a_star(state):
             new_cost = cost_so_far[str(current)] + 1
             if str(next) not in cost_so_far or new_cost < cost_so_far[str(next)]:
                 cost_so_far[str(next)] = new_cost
-                priority = new_cost + heuristic(goal, next)
+                priority = new_cost + heuristic_to_goal(next)
                 queue.put(next, priority)
                 came_from[next] = current
     return {

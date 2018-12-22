@@ -12,7 +12,7 @@ class TestBfs(unittest.TestCase):
         self.assertEqual(final_state.blue_count, 0)
         full_path = result['full_path']
         print('Full path length: {}'.format(len(full_path)))
-        self.assertEqual(len(full_path), 350)
+        self.assertEqual(len(full_path), 3295)
         path = result['path']
         print('Path length is {}'.format(len(path)))
         self.assertEqual(len(path), 59)

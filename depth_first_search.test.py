@@ -11,11 +11,14 @@ class TestDfs(unittest.TestCase):
         self.assertEqual(final_state.green_count, 46)
         self.assertEqual(final_state.blue_count, 0)
         path = result['path']
+        self.assertEqual(len(path), 89)
         print('Path length: {}'.format(len(path)))
         print('Path')
         for p in result['path']:
             print(p)
-        print('Full path length: {}'.format(len(result['full_path'])))
+        full_path = result['full_path']
+        self.assertEqual(len(full_path), 98)
+        print('Full path length: {}'.format(len(full_path)))
 
 if __name__ == "__main__":
     unittest.main()
