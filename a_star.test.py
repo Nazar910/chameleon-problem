@@ -15,7 +15,7 @@ class TestBfs(unittest.TestCase):
         self.assertEqual(len(full_path), 3295)
         path = result['path']
         print('Path length is {}'.format(len(path)))
-        self.assertEqual(len(path), 59)
+        self.assertEqual(len(path), 17)
         i = 1
         for node in path:
             print('{}:{}'.format(i, node))

@@ -19,6 +19,15 @@ def heuristic_to_goal(node):
      + abs(goal.blue_count - node.blue_count) \
      + abs(goal.green_count - node.green_count)
 
+def reconstruct_path(came_from, start, goal):
+    current = goal
+    path = []
+    while current != start and current != None:
+        path.append(current)
+        current = came_from[str(current)]
+    path.reverse()  # optional
+    return path
+
 from collections import deque
 
 def a_star(state):
@@ -52,9 +61,9 @@ def a_star(state):
                 cost_so_far[str(next)] = new_cost
                 priority = new_cost + heuristic_to_goal(next)
                 queue.put(next, priority)
-                came_from[next] = current
+                came_from[str(next)] = str(current)
     return {
         'final_state': current,
         'full_path': full_path,
-        'path': current.get_path()
+        'path': reconstruct_path(came_from, state, goal)
     }
