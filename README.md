@@ -20,6 +20,23 @@ To solve "chameleons problem" I used three graph traversing algorithms:
 - breadth first search BFS ([implementation](https://github.com/Nazar910/chameleon-problem/blob/master/breadth_first_search.py))
 - A* algorithm (A star) ([implementation](https://github.com/Nazar910/chameleon-problem/blob/master/a_star.py))
 
+## Tests
+You can check that all works by running tests.
+
+Run one:
+```fish
+python a_star.test.py
+```
+Or launching all of them (fish shell example)
+```fish
+bash -c './run_tests.sh'
+```
+for bash or zsh use
+```bash
+./run_tests.sh
+```
+
+
 ## Conclusion
 So, what are the results. All three algorithms found state (red=0, green=46, blue=0) as the state where all chameleons have one color.
 About algorithms:
