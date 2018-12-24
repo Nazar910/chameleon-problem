@@ -2,7 +2,7 @@
 
 project for solving "Chameleon problem" (and also for getting some experience in Python).
 
-## About:
+## Problem:
 ```
 On the Sebur island lived chameleons. There were 13 red, 16 green and 17 blue ones.
 In case when two chameleons of different colors met, they change their color to
@@ -11,7 +11,7 @@ Is it possible for all chameleons to become one color?
 ```
 
 ## Implementation
-For representing state of the chameleons on the island I create a `State` class (see [here](https://github.com/Nazar910/chameleon-problem/blob/master/state.py)).
+For representing state of the chameleons on the island I created a `State` class (see [here](https://github.com/Nazar910/chameleon-problem/blob/master/state.py)).
 It has usefull methods like checking if all chameleons already of one color or create new state like red_met_blue() which returns new state object with updated chameleons count.
 
 ### Algorithms:
