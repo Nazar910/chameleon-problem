@@ -5,6 +5,9 @@ from collections import deque
 
 class TestDfs(unittest.TestCase):
     def test_result(self):
+        print('=======================')
+        print('DFS algorithm')
+        print('=======================')
         result = dfs(State(red=13, blue=16, green=17))
         final_state = result['final_state']
         self.assertEqual(final_state.red_count, 0)

@@ -40,6 +40,7 @@ def a_star(state):
 
     full_path = []
 
+    neighbors = deque()
     while not queue.empty():
         current = queue.get()
         full_path.append(str(current))
@@ -47,7 +48,7 @@ def a_star(state):
         if current.has_only_one_color():
             break
 
-        neighbors = deque()
+        neighbors.clear()
         if current.has_red_ones() and current.has_green_ones():
             neighbors.append(current.red_met_green())
         if current.has_blue_ones() and current.has_red_ones():

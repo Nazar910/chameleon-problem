@@ -5,6 +5,9 @@ from collections import deque
 
 class TestBfs(unittest.TestCase):
     def test_result(self):
+        print('=======================')
+        print('BFS algorithm')
+        print('=======================')
         result = bfs(State(red=13, blue=16, green=17))
         final_state = result['final_state']
         self.assertEqual(final_state.red_count, 0)
